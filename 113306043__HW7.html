@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<div class="container">
+		<div class="left-panel">
+			<div class="photo-panel">
+				<img src="personal photo.JPG" alt="personal photo">
+			</div>
+			<div class="text-content">
+				<h1 id="userName">Jessica</h1>
+				<button id="editButton">edit</button>
+				<section>
+					<p><strong>About Me</strong></p>
+					<p>I am a freshman in the Department of Management Information System at National Chengchi University. I am learning Java, HTML, CSS, and Python.</p>
+				</section>
+				<section>
+					<p><strong>Contact</strong></p>
+					<p>113306043@g.nccu.edu.tw</p>
+				</section>
+				<img src="nccu logo.jpg" alt="nccu logo" class="nccu-logo">
+			</div>
+		</div>
+
+		<div class="right-panel">
+			<section>
+				<h2>Education</h2>
+				<div class="education-item">
+					<div class="year">2024-now</div>
+					<p>National Chengchi University, Department of MIS</p>
+				</div>
+				<div class="education-item">
+					<div class="year">2021-2024</div>
+					<p>Taipei Municipal Datong High Scool</p>
+				</div>
+				<div class="education-item">
+					<div class="year">2018-2021</div>
+					<p>Taipei Municipal Jinhua Junior High School</p>
+				</div>
+			</section>
+
+			<section>
+				<h2>Homework List</h2>
+				<div class="homework-item">
+					<div>HW2</div>
+					<a href="https://github.com/xuancc0/113306043_mis_xuancc0.git">https://github.com/xuancc0/113306043_mis_xuancc0.git</a>
+				</div>
+				<div class="homework-item">
+					<div>HW3</div>
+					<a href="https://github.com/xuancc0/113306043vba.git">https://github.com/xuancc0/113306043vba.git</a>
+				</div>
+				<div class="homework-item">
+					<div>HW4</div>
+					<a href="https://github.com/xuancc0/113306043_HW4.git">https://github.com/xuancc0/113306043_HW4.git</a>
+				</div>
+			</section>
+
+			<section>
+				<h2>Favorite Music</h2>
+				<div id="music-list" class="music">
+					<a href="https://youtu.be/JleoAppaxi0?si=Vj9RRQW8F7yj3T6t"><img src="love wins all.jpg" alt="love wins all"></a>
+					<p><br>Love wins all</br></p>
+					<a href="https://youtu.be/LHtzWOLBdPc?si=PcxdqIaDHARQ4pqE"><img src="for us.jpg" alt="for us"></a>
+					<p><br>For Us</br></p>
+					<a href="https://youtu.be/Q-UZygeboOc?si=LAq_YOxgFWj-ODJg"><img src="peach eyes.jpg" alt="peach eyes"></a>
+					<p><br>peach eyes</br></p>
+					<a href="https://youtu.be/pW3OHJRy14A?si=HIe6hGD_RQ0omsu9"><img src="如何.jpeg" alt="如何"></a>
+					<p><br>如何</br></p>
+				</div>
+				<button id="addMusicButton">add</button>
+			</section>
+			<section>
+				<p class="note">These are for of my favorite songs, which always inspire me. Click on the albums to listen!</p>
+			</section>
+			<div id="popup" style="display:none;">
+				<input id="musicLink" type="text" placeholder="Enter music link">
+				<input id="musicName" type="text" placeholder="Enter music name">
+				<button id="submitMusicButton">Submit</button>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		var userName = document.getElementById("userName");
+		var editButton = document.getElementById("editButton");
+		var addMusicButton = document.getElementById("addMusicButton");
+		var popup = document.getElementById("popup");
+		var musicLink = document.getElementById("musicLink");
+		var musicName = document.getElementById("musicName");
+		var submitMusicButton = document.getElementById("submitMusicButton");
+		var musicList = document.getElementById("music-list");
+		var isEditing = false;
+
+		editButton.addEventListener("click", () => {
+			if (isEditing) {
+				var inputField = document.querySelector("#userNameInput");
+				userName.textContent = inputField.value;
+				editButton.textContent = "edit";
+				inputField.remove();
+			} else {
+				var inputField = document.createElement("input");
+				inputField.type = "text";
+				inputField.id = "userNameInput";
+				inputField.value = userName.textContent.trim();
+				userName.innerHTML = "";
+				userName.appendChild(inputField);
+				editButton.textContent = "save";
+			}
+			isEditing = !isEditing;
+		});
+
+		addMusicButton.addEventListener("click", () => {
+			popup.style.display = "block";
+		});
+
+		submitMusicButton.addEventListener("click", () => {
+			if (musicLink.value.trim() === "" || musicName.value.trim() === "") {
+				alert("Please fill in both fields!");
+				return;
+			}
+
+			var newMusicItem = document.createElement("div");
+			newMusicItem.innerHTML = `<a href="${musicLink.value}" target="_blank"><img src="default-music.png" alt="${musicName.value}"></a>
+			<p>${musicName.value}</p>`;
+
+			musicList.appendChild(newMusicItem);
+
+			musicLink.value = "";
+			musicName.value = "";
+			popup.style.display = "none";
+		});
+	</script>
+</body>
+</html>
