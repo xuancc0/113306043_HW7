@@ -11,17 +11,13 @@ body {
 
 .container {
 	display: flex;
-	flex-direction: row;
-	align-items: stretch;
-	width: 100%;
-	max-width: 1200px;
+	width: 900px;
+	height: 1100px;
 	padding-bottom: 0;
-	margin: auto;
 }
 
 .left-panel {
-	width: 35%;
-	min-width: 300px;
+	width: 330px;
 	height: 100%;
 	background-color: #BCC6DD;
 	display: flex;
@@ -60,8 +56,7 @@ body {
 }
 
 .right-panel {
-	width: 65%;
-	min-width: 600px;
+	width: 540px;
 	height: 100%;
 	background-color: white;
 	padding: 20px;
