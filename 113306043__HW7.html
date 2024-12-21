@@ -63,14 +63,22 @@
 			<section>
 				<h2>Favorite Music</h2>
 				<div id="music-list" class="music">
-					<a href="https://youtu.be/JleoAppaxi0?si=Vj9RRQW8F7yj3T6t"><img src="love wins all.jpg" alt="love wins all"></a>
-					<p><br>Love wins all</br></p>
-					<a href="https://youtu.be/LHtzWOLBdPc?si=PcxdqIaDHARQ4pqE"><img src="for us.jpg" alt="for us"></a>
-					<p><br>For Us</br></p>
-					<a href="https://youtu.be/Q-UZygeboOc?si=LAq_YOxgFWj-ODJg"><img src="peach eyes.jpg" alt="peach eyes"></a>
-					<p><br>peach eyes</br></p>
-					<a href="https://youtu.be/pW3OHJRy14A?si=HIe6hGD_RQ0omsu9"><img src="如何.jpeg" alt="如何"></a>
-					<p><br>如何</br></p>
+					<div>
+						<a href="https://youtu.be/JleoAppaxi0?si=Vj9RRQW8F7yj3T6t"><img src="love wins all.jpg" alt="love wins all"></a>
+						<p>Love wins all</p>
+					</div>
+					<div>
+						<a href="https://youtu.be/LHtzWOLBdPc?si=PcxdqIaDHARQ4pqE"><img src="for us.jpg" alt="for us"></a>
+						<p>For Us</p>
+					</div>
+					<div>
+						<a href="https://youtu.be/Q-UZygeboOc?si=LAq_YOxgFWj-ODJg"><img src="peach eyes.jpg" alt="peach eyes"></a>
+						<p>peach eyes</p>
+					</div>
+					<div>
+						<a href="https://youtu.be/pW3OHJRy14A?si=HIe6hGD_RQ0omsu9"><img src="如何.jpeg" alt="如何"></a>
+						<p>如何</p>
+					</div>
 				</div>
 				<button id="addMusicButton">add</button>
 			</section>
@@ -125,7 +133,7 @@
 			}
 
 			var newMusicItem = document.createElement("div");
-			newMusicItem.innerHTML = `<a href="${musicLink.value}" target="_blank"><img src="default-music.png" alt="${musicName.value}"></a>
+			newMusicItem.innerHTML = `<a href="${musicLink.value}" target="_blank"><img src="${musicName.value}.PNG" alt="${musicName.value}"></a>
 			<p>${musicName.value}</p>`;
 
 			musicList.appendChild(newMusicItem);
